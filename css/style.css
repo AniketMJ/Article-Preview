@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+.u-container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ecf2f8;
+}
+
+.Card {
+  width: 70%;
+  min-height: 280px;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.Card-img {
+  flex: 1.4;
+  min-height: 290px;
+  background-image: url("../images/drawers.jpg");
+  background-size: cover;
+  border-radius: 15px 0 0 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .Card-img {
+    border-radius: 15px 15px 0 0;
+    background-position: center;
+    min-height: 180px;
+  }
+}
+
+.Card-body {
+  flex: 2;
+  padding: 2.5em;
+  padding: clamp(1.3em, 1vw, 2.5em);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Card-heading {
+  margin-bottom: 1rem;
+}
+
+.Card-heading h1 {
+  font-size: clamp(0.9rem, 2vw, 1.3rem);
+  color: #48556a;
+  font-weight: bold;
+}
+
+.Card-description {
+  margin-bottom: 1rem;
+}
+
+.Card-description p {
+  font-size: clamp(0.675rem, 2vw, 0.85rem);
+  font-weight: 500;
+  color: #6d7f97;
+}
+
+.Card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Card-profileImg {
+  background-image: url(../images/avatar-michelle.jpg);
+  background-size: cover;
+  border-radius: 50%;
+  width: clamp(2rem, 3vw, 2.5rem);
+  height: clamp(2rem, 3vw, 2.5rem);
+  margin-right: 1rem;
+}
+
+.Card-profileName {
+  flex: 1;
+}
+
+.Card-profileName p:first-child {
+  color: #48556a;
+  font-weight: bold;
+  font-size: 0.9rem;
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+  margin-bottom: 0.1rem;
+}
+
+.Card-profileName p:last-child {
+  color: #9eafc2;
+  font-weight: lighter;
+  font-size: 0.8rem;
+  font-size: clamp(0.65rem, 2vw, 0.8rem);
+}
+
+.Card-profileShare {
+  z-index: 2;
+  position: relative;
+}
+
+.Card-profileShare::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #ecf2f8;
+}
+
+.Card-profileShare--cta {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.Card-profileShare--active::before {
+  background-color: #6d7f94;
+}
+
+.Card-profileShare--active .Card-profileShareLinks {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.Card-profileShare--active > img {
+  mix-blend-mode: screen;
+}
+
+.Card-profileShareLinks {
+  pointer-events: none;
+  cursor: default;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 230px;
+  height: 50px;
+  margin-bottom: 2rem;
+  background: #48556a;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 2;
+  opacity: 0;
+  transform-origin: bottom;
+  transition: opacity 100ms ease-in-out;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 55% 100%, 50% 125%, 45% 100%, 0% 100%);
+}
+
+.Card-profileShareLinks::before {
+  content: "";
+  position: absolute;
+  background: inherit;
+  z-index: -2;
+  top: 100%;
+  width: 50px;
+  height: 50px;
+}
+
+.Card-profileShareLinks p {
+  font-size: 0.7rem;
+  font-size: clamp(0.5rem, 2vw, 0.7rem);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #8b99ac;
+  font-weight: normal;
+}
+
+.Card-profileShareLinks img {
+  cursor: pointer;
+}
+
+.Card-profileShareLinks img:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .Card-profileShareLinks {
+    width: 180px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Card {
+    width: 80%;
+    min-height: 350px;
+    margin: 0.75rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 15px;
+  }
+}
